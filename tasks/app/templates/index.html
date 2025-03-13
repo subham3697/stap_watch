@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <title>Stopwatch</title>
+    <body>
+        <div>
+            <span>{{hours|default:"00"}}</span>:<span>{{minutes|default:"00"}}</span>:<span>{{seconds|default:"00"}}</span>
+
+        </div>
+        <form method="POST" action="{% url 'start' %}">
+            {% csrf_token %}
+            <button type="submit">Start</button>
+        </form>
+        
+        <form action="{% url 'pause' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Pause</button>
+        </form>
+        
+        <form action="{% url 'reset' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Reset</button>
+        </form>
+        
+    </body>
+</head>
